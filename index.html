@@ -1,0 +1,396 @@
+# brandon87bj.github.io
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Póster Estrategia Organizacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #000028;
+            --mid-dark: #00003a;
+            --accent-blue: #00b4d8;
+            --accent-gold: #f4a261;
+            --text-white: #e8f4fd;
+            --text-dim: #a0c4d8;
+            --section-bg: rgba(255,255,255,0.04);
+            --border-color: rgba(0, 180, 216, 0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: #000018;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+        }
+        .poster {
+            width: 860px;
+            background: var(--primary-dark);
+            color: var(--text-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 80px rgba(0,150,220,0.2), 0 20px 60px rgba(0,0,0,0.8);
+            border: 1px solid var(--border-color);
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #000050 0%, #000028 50%, #001040 100%);
+            padding: 40px 50px 30px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at center, rgba(0,150,220,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4em;
+            letter-spacing: 6px;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(0,180,216,0.5);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: var(--accent-blue);
+            font-size: 0.95em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* INTRO */
+        .intro {
+            margin: 30px 40px;
+            background: linear-gradient(135deg, rgba(0,180,216,0.1), rgba(0,100,180,0.05));
+            border: 1px solid rgba(0,180,216,0.25);
+            border-left: 4px solid var(--accent-blue);
+            padding: 18px 24px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+        .intro strong { color: var(--accent-blue); font-style: normal; }
+
+        /* MAIN CONTENT */
+        .content { padding: 0 40px 40px; }
+
+        /* SECTION BLOCK */
+        .section-block {
+            background: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-top: 3px solid var(--accent-blue);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+        }
+        .section-block h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8em;
+            letter-spacing: 3px;
+            color: var(--accent-blue);
+            margin-bottom: 6px;
+        }
+        .section-block .section-desc {
+            color: var(--text-dim);
+            font-size: 0.88em;
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+
+        /* TWO COLUMN LAYOUT INSIDE SECTION */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* SUBSECTION */
+        .subsection { }
+        .subsection h3 {
+            font-size: 0.82em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            border-bottom: 1px solid rgba(244,162,97,0.3);
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            font-size: 0.88em;
+            color: var(--text-white);
+            padding: 5px 0 5px 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            line-height: 1.4;
+        }
+        ul li:last-child { border-bottom: none; }
+        ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-size: 0.8em;
+            top: 6px;
+        }
+        ul li strong { color: var(--accent-gold); }
+
+        /* FODA GRID */
+        .foda-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .foda-card {
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 1px solid;
+        }
+        .foda-card.f { background: rgba(0,200,100,0.08); border-color: rgba(0,200,100,0.3); }
+        .foda-card.o { background: rgba(0,180,216,0.08); border-color: rgba(0,180,216,0.3); }
+        .foda-card.d { background: rgba(244,162,97,0.08); border-color: rgba(244,162,97,0.3); }
+        .foda-card.a { background: rgba(220,50,50,0.08); border-color: rgba(220,50,50,0.3); }
+        .foda-card .foda-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1em;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+        .foda-card.f .foda-label { color: #00c864; }
+        .foda-card.o .foda-label { color: var(--accent-blue); }
+        .foda-card.d .foda-label { color: var(--accent-gold); }
+        .foda-card.a .foda-label { color: #e05050; }
+        .foda-card p { font-size: 0.83em; color: var(--text-dim); }
+
+        /* PESTEL PILLS */
+        .pestel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .pestel-pill {
+            background: rgba(0,180,216,0.08);
+            border: 1px solid rgba(0,180,216,0.2);
+            border-radius: 8px;
+            padding: 10px 12px;
+        }
+        .pestel-pill .letter {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4em;
+            color: var(--accent-blue);
+            line-height: 1;
+        }
+        .pestel-pill .name { font-size: 0.72em; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; }
+        .pestel-pill .desc { font-size: 0.75em; color: var(--text-dim); margin-top: 3px; line-height: 1.3; }
+
+        /* DIVIDER */
+        .divider {
+            border: none;
+            border-top: 1px dashed rgba(0,180,216,0.25);
+            margin: 6px 0 18px;
+        }
+
+        /* TAG BADGE */
+        .tag {
+            display: inline-block;
+            background: rgba(0,180,216,0.15);
+            border: 1px solid rgba(0,180,216,0.3);
+            color: var(--accent-blue);
+            font-size: 0.72em;
+            letter-spacing: 1px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: rgba(0,0,0,0.3);
+            border-top: 1px dashed rgba(0,180,216,0.25);
+            text-align: center;
+            padding: 18px;
+            font-size: 0.78em;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="poster">
+
+    <div class="header">
+        <h1>Modelo Organizacional</h1>
+        <div class="subtitle">Examen Unidad 1 &mdash; Análisis y Planificación Estratégica</div>
+    </div>
+
+    <div class="intro">
+        <strong>¿Qué es?</strong> Es el esquema estructural y de gestión que define cómo una empresa ordena sus recursos, personas, jerarquías y procesos para alcanzar sus objetivos
+    </div>
+
+    <div class="content">
+
+        <!-- SECCIÓN 1: MODELO ORGANIZACIONAL -->
+        <div class="section-block">
+            <div class="tag">Sección 1</div>
+            <h2>Análisis del Modelo Organizacional</h2>
+            <p class="section-desc">Es la estructura que define cómo se dividen, agrupan y coordinan las actividades dentro de la organización.</p>
+            <div class="two-col">
+                <div class="subsection">
+                    <h3>Elementos Identitarios (Controlables)</h3>
+                    <ul>
+                        <li><strong>Misión:</strong> Declaración de la razón de ser de la empresa.</li>
+                        <li><strong>Visión:</strong> Descripción del estado futuro deseado; a dónde quieren llegar.</li>
+                        <li><strong>Valores:</strong> Principios éticos y de comportamiento que guían a la organización.</li>
+                    </ul>
+                </div>
+                <div class="subsection">
+                    <h3>Tipos de Estructura Organizacional</h3>
+                    <ul>
+                        <li><strong>Lineal (Jerárquica):</strong> Estructura simple con cadena de mando directa.</li>
+                        <li><strong>Funcional:</strong> Agrupación de empleados por especialidades (marketing, finanzas, etc.).</li>
+                        <li><strong>Matricial:</strong> Combinación de estructuras para mayor colaboración entre áreas.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: ANÁLISIS DEL ENTORNO -->
+        <div class="section-block">
+            <div class="tag">Sección 2</div>
+            <h2>Análisis del Entorno</h2>
+            <p class="section-desc">Factores externos no controlables que impactan a la organización. Se divide en macroentorno y microentorno.</p>
+
+            <h3 style="font-size:0.82em;text-transform:uppercase;letter-spacing:2px;color:var(--accent-gold);margin-bottom:12px;font-weight:700;">Macroentorno — Análisis PESTEL</h3>
+            <div class="pestel-grid">
+                <div class="pestel-pill">
+                    <div class="letter">P</div>
+                    <div class="name">Político</div>
+                    <div class="desc">Leyes y regulaciones gubernamentales.</div>
+                </div>
+                <div class="pestel-pill">
+                    <div class="letter">E</div>
+                    <div class="name">Económico</div>
+                    <div class="desc">Factores como inflación y tasas de interés.</div>
+                </div>
+                <div class="pestel-pill">
+                    <div class="letter">S</div>
+                    <div class="name">Social</div>
+                    <div class="desc">Tendencias demográficas y culturales.</div>
+                </div>
+                <div class="pestel-pill">
+                    <div class="letter">T</div>
+                    <div class="name">Tecnológico</div>
+                    <div class="desc">Innovaciones y ritmo de cambio tecnológico.</div>
+                </div>
+                <div class="pestel-pill">
+                    <div class="letter">E</div>
+                    <div class="name">Ecológico</div>
+                    <div class="desc">Sostenibilidad y regulaciones ambientales.</div>
+                </div>
+                <div class="pestel-pill">
+                    <div class="letter">L</div>
+                    <div class="name">Legal</div>
+                    <div class="desc">Leyes laborales y de protección al consumidor.</div>
+                </div>
+            </div>
+
+            <hr class="divider" style="margin-top:20px;">
+
+            <h3 style="font-size:0.82em;text-transform:uppercase;letter-spacing:2px;color:var(--accent-gold);margin-bottom:12px;font-weight:700;">Microentorno — Actores Directos</h3>
+            <div class="three-col">
+                <div class="subsection">
+                    <ul>
+                        <li><strong>Clientes:</strong> Identificación de sus necesidades y expectativas.</li>
+                    </ul>
+                </div>
+                <div class="subsection">
+                    <ul>
+                        <li><strong>Proveedores:</strong> Análisis de la calidad y confiabilidad de los insumos.</li>
+                    </ul>
+                </div>
+                <div class="subsection">
+                    <ul>
+                        <li><strong>Competencia:</strong> Identificación de los principales rivales del mercado.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: PLAN ESTRATÉGICO -->
+        <div class="section-block">
+            <div class="tag">Sección 3</div>
+            <h2>Elementos del Plan Estratégico</h2>
+            <p class="section-desc">Hoja de ruta para alcanzar la visión a largo plazo mediante metas claras y estrategias definidas.</p>
+
+            <h3 style="font-size:0.82em;text-transform:uppercase;letter-spacing:2px;color:var(--accent-gold);margin-bottom:14px;font-weight:700;">Matriz FODA — Diagnóstico Integral</h3>
+            <div class="foda-grid">
+                <div class="foda-card f">
+                    <div class="foda-label">Fortalezas</div>
+                    <p>Capacidades internas positivas con las que ya cuenta la organización.</p>
+                </div>
+                <div class="foda-card o">
+                    <div class="foda-label">Oportunidades</div>
+                    <p>Factores externos del entorno que se pueden aprovechar a favor.</p>
+                </div>
+                <div class="foda-card d">
+                    <div class="foda-label">Debilidades</div>
+                    <p>Factores internos negativos que deben mejorarse o eliminarse.</p>
+                </div>
+                <div class="foda-card a">
+                    <div class="foda-label">Amenazas</div>
+                    <p>Factores externos que pueden perjudicar a la organización.</p>
+                </div>
+            </div>
+
+            <hr class="divider" style="margin-top:20px;">
+
+            <div class="two-col">
+                <div class="subsection">
+                    <h3>Objetivos Estratégicos</h3>
+                    <ul>
+                        <li>Metas a largo plazo que deben ser medibles (criterios SMART).</li>
+                        <li>Ejemplo: <strong>"Aumentar las ventas un 10% en 12 meses."</strong></li>
+                        <li>Orientan todas las decisiones operativas de la empresa.</li>
+                    </ul>
+                </div>
+                <div class="subsection">
+                    <h3>Estrategias de Acción</h3>
+                    <ul>
+                        <li>Principales vías o planes para lograr los objetivos propuestos.</li>
+                        <li>Deben alinearse con la misión, visión y valores organizacionales.</li>
+                        <li>Se monitorean mediante <strong>KPIs</strong> (indicadores clave de desempeño).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
